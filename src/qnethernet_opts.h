@@ -7,6 +7,11 @@
 
 #pragma once
 
+// Disables T41 native ethernet IF and enables T41 and CYW4343W IF.
+#ifndef ARDUINO_TEENSY41_CYW4343W
+#define ARDUINO_TEENSY41_CYW4343W 1
+#endif
+
 // Enables the 'altcp_tls_adapter' functions for easier TLS library integration.
 // It's set, by default here, to be enabled if MbedTLS is enabled.
 #ifndef QNETHERNET_ALTCP_TLS_ADAPTER
@@ -133,11 +138,6 @@
 // example program for the Teensy 4.1)
 #ifndef QNETHERNET_PROVIDE_GNU_VERBOSE_TERMINATE_HANDLER
 #define QNETHERNET_PROVIDE_GNU_VERBOSE_TERMINATE_HANDLER 0
-#endif
-
-// Provides an implementation of settimeofday() for Teensy.
-#ifndef QNETHERNET_PROVIDE_TEENSY_SETTIMEOFDAY
-#define QNETHERNET_PROVIDE_TEENSY_SETTIMEOFDAY 1
 #endif
 
 // Use the Entropy library instead of internal functions. (Teensy 4)
