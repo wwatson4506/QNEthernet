@@ -1,3 +1,23 @@
+# This is a version of QNEthernet for use with the CYW4343W WIFI card. All examples except for ping.ino and simplePing.ino are tested and seem to work.
+# THIS IS WORK IN PROGRESS. NO GUARANTEES AT All!! THE ORIGINAL AUTHOR IS NOT RESPONSIBLE FOR ANY OF THIS MODIFIED CODE!!
+## To use the examples yoou must first edit the "QNEthernet/scr/drivers/cyw4343w/src/secrets.h" file:
+
+// The secrets file
+
+// SSID
+#define MY_SSID            "testSSID"
+
+//PASSPHRASE
+#define MY_PASSPHRASE      "testPASSPHRASE"
+
+// Security settings: 0 for none, 1 for WPA_TKIP, 2 for WPA2
+// The hard-coded password is for test purposes only!!!
+#define SECURITY        2
+
+Set MY_SSID to your network wifi name and set MY_PASSPHRASEto yoor chosen password.
+## Again this is work in progress.
+
+
 [![Sponsor @ssilverman button](https://img.shields.io/badge/Sponsor-30363d.svg?logo=githubsponsors&logoColor=EA4AAA)](https://github.com/sponsors/ssilverman "Sponsor @ssilverman on GitHub")
 or
 [![Buy Me a Coffee donate button](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-orange.svg?logo=buy-me-a-coffee&logoColor=FFDD00)](https://www.buymeacoffee.com/ssilverman "Donate to this project using Buy Me a Coffee")
