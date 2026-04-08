@@ -17,7 +17,7 @@
 #if defined(__has_include)
 // https://gcc.gnu.org/onlinedocs/cpp/_005f_005fhas_005finclude.html
 #if __has_include(<qnethernet_external_driver.h>)
-#include <qnethernet_external_driver.h>
+#include "qnethernet/drivers/qnethernet_external_driver.h"
 #define QNETHERNET_INTERNAL_DRIVER_EXTERNAL
 #endif  // __has_include(<qnethernet_external_driver.h>)
 #endif  // defined(__has_include)
@@ -32,6 +32,10 @@
 #if defined(QNETHERNET_DRIVER_W5500)
 #include "qnethernet/drivers/driver_w5500.h"
 #define QNETHERNET_INTERNAL_DRIVER_W5500
+#endif
+#if ARDUINO_TEENSY41_CYW4343W
+#include "qnethernet/drivers/driver_CYW4343W.h"
+#define QNETHERNET_INTERNAL_DRIVER_CYW4343W
 #elif defined(ARDUINO_TEENSY41)
 #include "qnethernet/drivers/driver_teensy41.h"
 #define QNETHERNET_INTERNAL_DRIVER_TEENSY41
@@ -41,3 +45,4 @@
 #endif  // Driver selection
 
 #endif  // QNETHERNET_INTERNAL_DRIVER_EXTERNAL
+
