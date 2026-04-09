@@ -1,4 +1,4 @@
-# This is a version of QNEthernet for use with the CYW4343W WIFI card. All examples except for SNTPClient.ino, ping.ino and simplePing.ino are tested and seem to work.
+# This is a version of QNEthernet for use with the CYW4343W WIFI card. All examples except for ping.ino and simplePing.ino are tested and seem to work.
 # THIS IS WORK IN PROGRESS. NO GUARANTEES AT All!! THE ORIGINAL AUTHOR IS NOT RESPONSIBLE FOR ANY OF THIS MODIFIED CODE!!
 ## To use the examples you must first edit the "QNEthernet/src/qnethernet/drivers/cyw4343w/src/secrets.h" file:
 
