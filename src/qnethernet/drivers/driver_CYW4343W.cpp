@@ -307,7 +307,7 @@ bool driver_is_link_state_detectable() {
 }
 
 int driver_link_speed() {
-//  printf("driver_link_speed\n"); return 0; }
+//  printf("driver_link_speed\n"); return 0;
 }
 
 bool driver_link_is_full_duplex() {
