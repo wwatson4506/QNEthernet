@@ -75,16 +75,15 @@ void setup() {
   // Unlike the Arduino API (which you can still use), QNEthernet uses
   // the Teensy's internal MAC address by default, so we can retrieve
   // it here
-  uint8_t mac[6];
-  Ethernet.macAddress(mac);  // This is informative; it retrieves, not sets
-  printf("MAC = %02x:%02x:%02x:%02x:%02x:%02x\r\n",
-         mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
-
   printf("Starting Ethernet with DHCP...\r\n");
   if (!Ethernet.begin()) {
     printf("Failed to start Ethernet\r\n");
     return;
   }
+  uint8_t mac[6];
+  Ethernet.macAddress(mac);  // This is informative; it retrieves, not sets
+  printf("MAC = %02x:%02x:%02x:%02x:%02x:%02x\r\n",
+         mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
   printf("Waiting for local IP...\r\n");
   if (!Ethernet.waitForLocalIP(kDHCPTimeout)) {
     printf("Failed to get IP address from DHCP\r\n");
