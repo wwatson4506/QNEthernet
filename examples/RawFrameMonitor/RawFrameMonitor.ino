@@ -66,11 +66,6 @@ void setup() {
   }
   printf("Starting...\r\n");
 
-  // Print the MAC address
-  uint8_t mac[6];
-  Ethernet.macAddress(mac);  // This is informative; it retrieves, not sets
-  printf("MAC = %02x:%02x:%02x:%02x:%02x:%02x\r\n",
-         mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
 
   // Add listeners before starting Ethernet
 
@@ -112,6 +107,11 @@ void setup() {
     printf("Failed to start Ethernet\r\n");
     return;
   }
+  // Print the MAC address
+  uint8_t mac[6];
+  Ethernet.macAddress(mac);  // This is informative; it retrieves, not sets
+  printf("MAC = %02x:%02x:%02x:%02x:%02x:%02x\r\n",
+         mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
 }
 
 // Main program loop.
