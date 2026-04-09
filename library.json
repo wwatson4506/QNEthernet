@@ -11,11 +11,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ssilverman/QNEthernet"
+    "url": "https://github.com/wwatson4506/QNEthernet/tree/CYW4343W_WIP"
   },
   "version": "0.36.0-snapshot",
   "license": "AGPL-3.0-or-later",
-  "homepage": "https://github.com/ssilverman/QNEthernet",
+  "homepage": "https://github.com/wwatson4506/QNEthernet/tree/CYW4343W_WIP",
   "frameworks": "arduino",
   "platforms": "*"
 }
