@@ -106,21 +106,21 @@ void driver_get_system_mac(uint8_t mac[ETH_HWADDR_LEN]) {
 }
 
 bool driver_get_mac(uint8_t mac[ETH_HWADDR_LEN]) {
-  printf("driver_get_mac\n");
+//  printf("driver_get_mac\n");
   if(join_check() != JOIN_OK) return false;
   wifiCard.getMACAddress((uint8_t *)mac);
   return true;
 }
 
 bool driver_set_mac(const uint8_t mac[ETH_HWADDR_LEN]) {
-  printf("driver_set_mac\n");
+//  printf("driver_set_mac\n");
   if(join_check() != JOIN_OK) return false;
   wifiCard.getMACAddress((uint8_t *)mac);
   return true;
 }
 
 bool driver_has_hardware() {
-  printf("\ndriver_has_hardware\n");
+//  printf("\ndriver_has_hardware\n");
   switch (s_initState) {
     case kInitStateHasHardware:
       ATTRIBUTE_FALLTHROUGH;
@@ -152,7 +152,7 @@ bool driver_has_hardware() {
 void driver_set_chip_select_pin(int pin) {}
 
 bool driver_init(void) {
-  printf("driver_init\n");
+//  printf("driver_init\n");
   if (s_initState == kInitStateInitialized) {
     return true;
   }
@@ -249,7 +249,7 @@ err_t driver_output(struct pbuf *p) {
 
 #if QNETHERNET_ENABLE_RAW_FRAME_SUPPORT
 bool driver_output_frame(const void *frame, size_t len) {
-  printf("driver_output_frame\n");
+//  printf("driver_output_frame\n");
 
   if (len > (UINT16_MAX - ETH_PAD_SIZE)) {
     return false;
@@ -272,50 +272,50 @@ void driver_get_link_info(struct LinkInfo* const li) {
 }
 
 size_t driver_get_mtu() {
-  printf("driver_get_mtu()\n");
+//  printf("driver_get_mtu()\n");
   return MTU;
 }
 
 size_t driver_get_max_frame_len() {
-  printf("driver_get_max_frame_len\n");
+//  printf("driver_get_max_frame_len\n");
   return 1580 - 44;
 }
 
 bool driver_set_incoming_mac_address_allowed(const uint8_t mac[ETH_HWADDR_LEN],
                                              bool allow) {
-  printf("driver_set_incoming_address_allowed()\n");
+//  printf("driver_set_incoming_address_allowed()\n");
   return false;
 }
 
 
 #if !QNETHERNET_ENABLE_PROMISCUOUS_MODE
 bool driver_set_mac_address_allowed(const uint8_t mac[ETH_HWADDR_LEN], bool allow) {
-  printf("driver_set_mac_address_allowed\n");
+//  printf("driver_set_mac_address_allowed\n");
   return false;
 }
 #endif
 
 // these functions don't seem to be used right now...
 bool driver_is_unknown() {
-  printf("driver_is_unknown\n");
+//  printf("driver_is_unknown\n");
   return false;
 }
 	 
 bool driver_is_link_state_detectable() {
-  printf("driver_is_link_state_detectable\n");
+//  printf("driver_is_link_state_detectable\n");
   return true;
 }
 
 int driver_link_speed() {
-  printf("driver_link_speed\n"); return 0; }
+//  printf("driver_link_speed\n"); return 0; }
 
 bool driver_link_is_full_duplex() {
-  printf("driver_link_is_full_duplex\n");
+//  printf("driver_link_is_full_duplex\n");
   return true;
 }
 
 bool driver_link_is_crossover() {
-  printf("driver_link_is_crossover\n");
+//  printf("driver_link_is_crossover\n");
   return false;
 }
 
