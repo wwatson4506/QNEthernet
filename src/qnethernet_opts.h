@@ -7,7 +7,8 @@
 
 #pragma once
 
-// Disables T41 native ethernet IF and enables T41 and CYW4343W IF.
+// 1 == Disable T41 native ethernet IF and enable T41 CYW4343W IF.
+// 0 == Enable T41 native ethernet IF and disable T41 CYW4343W IF.
 #ifndef ARDUINO_TEENSY41_CYW4343W
 #define ARDUINO_TEENSY41_CYW4343W 1
 #endif
