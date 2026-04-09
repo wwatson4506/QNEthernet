@@ -213,11 +213,6 @@ void setup() {
   }
   printf("Starting IPerfServer...\r\n");
 
-  uint8_t mac[6];
-  Ethernet.macAddress(mac);  // This is informative; it retrieves, not sets
-  printf("MAC = %02x:%02x:%02x:%02x:%02x:%02x\r\n",
-         mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
-
   // Listen for link changes
   Ethernet.onLinkState([](bool state) {
     if (state) {
@@ -274,7 +269,10 @@ void setup() {
     printf("Failed to start Ethernet\r\n");
     return;
   }
-
+  uint8_t mac[6];
+  Ethernet.macAddress(mac);  // This is informative; it retrieves, not sets
+  printf("MAC = %02x:%02x:%02x:%02x:%02x:%02x\r\n",
+         mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
   // We don't really need to do the following because the
   // address-changed listener will notify us
   // printf("Waiting for local IP...\r\n");
