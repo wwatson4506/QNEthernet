@@ -38,10 +38,6 @@ void setup() {
   }
   printf("Starting program...\r\n");
 
-  const uint8_t* const mac = Ethernet.macAddress();
-  printf("MAC = %02x:%02x:%02x:%02x:%02x:%02x\r\n",
-         mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
-
   // Listen for link changes
   Ethernet.onLinkState([](bool state) {
     if (state) {
@@ -90,6 +86,10 @@ void setup() {
     printf("Failed to start Ethernet\r\n");
     return;
   }
+
+  const uint8_t* const mac = Ethernet.macAddress();
+  printf("MAC = %02x:%02x:%02x:%02x:%02x:%02x\r\n",
+         mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
 
   // Start the server
   printf("Listening on port %" PRIu16 "...\r\n", kPort);
