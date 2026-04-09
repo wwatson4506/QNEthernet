@@ -100,11 +100,6 @@ void setup() {
   // Unlike the Arduino API (which you can still use), QNEthernet uses
   // the Teensy's internal MAC address by default, so we can retrieve
   // it here
-  uint8_t mac[6];
-  Ethernet.macAddress(mac);  // This is informative; it retrieves, not sets
-  printf("MAC = %02x:%02x:%02x:%02x:%02x:%02x\r\n",
-         mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
-
   // Add listeners
   // It's important to add these before doing anything with Ethernet
   // so no events are missed.
@@ -229,6 +224,10 @@ void setup() {
       }
     }
   }
+  uint8_t mac[6];
+  Ethernet.macAddress(mac);  // This is informative; it retrieves, not sets
+  printf("MAC = %02x:%02x:%02x:%02x:%02x:%02x\r\n",
+         mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
 
   // *** Additional setup code goes here
 }
