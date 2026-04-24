@@ -1,3 +1,39 @@
+# This is a version of QNEthernet for use with the CYW4343W WIFI card. All examples except for ping.ino and simplePing.ino are tested and seem to work.
+# THIS IS WORK IN PROGRESS. NO GUARANTEES AT All!! THE ORIGINAL AUTHOR IS NOT RESPONSIBLE FOR ANY OF THIS MODIFIED CODE!!
+
+## To use the examples with the wifi card you must first edit the "QNEthernet/src/qnethernet/drivers/cyw4343w/src/secrets.h" file:
+```
+// The secrets file
+
+// SSID
+#define MY_SSID            "testSSID"
+
+//PASSPHRASE
+#define MY_PASSPHRASE      "testPASSPHRASE"
+
+// Security settings: 0 for none, 1 for WPA_TKIP, 2 for WPA2
+// The hard-coded password is for test purposes only!!!
+#define SECURITY        2
+```
+
+Set MY_SSID to your network wifi name and set MY_PASSPHRASE to your chosen password. Set SECURITY to one of the three types.
+
+Most all of the examples seem to work. Some have not been tested. Right now simplePing.ino and ping.ino are not working. More work to do on those. 
+
+This branch of the QNEthernet (CYW4343W_WIP) library will allow you to use both wired and wifi ethernet on the Teensy4.1.
+This define in QNEthernet_opts.h switches betweeen the two:
+```
+// 1 == Disable T41 native ethernet IF and enable T41 CYW4343W IF.
+// 0 == Enable T41 native ethernet IF and disable T41 CYW4343W IF.
+#ifndef ARDUINO_TEENSY41_CYW4343W
+#define ARDUINO_TEENSY41_CYW4343W 1
+#endif
+```
+TODO:  Add wifi scan function.
+
+## Again this is work in progress.
+
+
 [![Sponsor @ssilverman button](https://img.shields.io/badge/Sponsor-30363d.svg?logo=githubsponsors&logoColor=EA4AAA)](https://github.com/sponsors/ssilverman "Sponsor @ssilverman on GitHub")
 or
 [![Buy Me a Coffee donate button](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-orange.svg?logo=buy-me-a-coffee&logoColor=FFDD00)](https://www.buymeacoffee.com/ssilverman "Donate to this project using Buy Me a Coffee")
@@ -189,9 +225,9 @@ For API additions beyond what the Arduino-style API provides, see:\
   `using` directive:
   ```c++
   using namespace qindesign::network;
-
+  
   EthernetUDP udp;
-
+  
   void setup() {
     Ethernet.begin();
   }
@@ -200,9 +236,9 @@ For API additions beyond what the Arduino-style API provides, see:\
   something shorter. For example:
   ```c++
   namespace qn = qindesign::network;
-
+  
   qn::EthernetUDP udp;
-
+  
   void setup() {
     qn::Ethernet.begin();
   }
@@ -833,10 +869,10 @@ then there are two things to be aware of:
 1. `Ethernet.loop()` needs to be called regularly somewhere. One good place is
    at the end of the main program loop.
 2. Any library functions that use `yield()` while waiting for an event, say in
-  `Ethernet.waitForLocalIP()` or `EthernetClient::connect()`, need to call
-  `Ethernet.loop()` during the wait, otherwise the stack won't move forward and
-  the event will never occur. A good place to do this is after the
-  `yield()` call.
+    `Ethernet.waitForLocalIP()` or `EthernetClient::connect()`, need to call
+    `Ethernet.loop()` during the wait, otherwise the stack won't move forward and
+    the event will never occur. A good place to do this is after the
+    `yield()` call.
 
 To accomplish #2, there is a configuration macro,
 `QNETHERNET_DO_LOOP_IN_YIELD`, that enables a call to `Ethernet.loop()` after
@@ -1929,7 +1965,7 @@ Here's how to implement the behaviour:
    ```properties
    # This can be overridden in boards.txt
    build.extra_flags=
-
+   
    # These can be overridden in platform.local.txt
    compiler.c.extra_flags=
    compiler.cpp.extra_flags=
@@ -2334,3 +2370,4 @@ Other conventions are adopted from Bjarne Stroustrup's and Herb Sutter's
 ---
 
 Copyright (c) 2021-2026 Shawn Silverman
+
