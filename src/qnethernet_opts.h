@@ -7,6 +7,12 @@
 
 #pragma once
 
+// 1 == Disable T41 native ethernet IF and enable T41 CYW4343W IF.
+// 0 == Enable T41 native ethernet IF and disable T41 CYW4343W IF.
+#ifndef ARDUINO_TEENSY41_CYW4343W
+#define ARDUINO_TEENSY41_CYW4343W 1
+#endif
+
 // Enables the 'altcp_tls_adapter' functions for easier TLS library integration.
 // It's set, by default here, to be enabled if MbedTLS is enabled.
 #ifndef QNETHERNET_ALTCP_TLS_ADAPTER
